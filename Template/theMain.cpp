@@ -73,7 +73,6 @@ T tMax(T a, T b)
 	else
 		return b;
 }
-
 //tMax<int>(10,20)
 //tMax<double>(0.6,0.8)
 
