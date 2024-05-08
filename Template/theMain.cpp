@@ -5,7 +5,7 @@ using std::cin;
 using std::endl;
 
 //テンプレート 型をパラメータにとっていろいろな型に対応できる機能
-//             多態性の一つ（同じ関数や、クラスをいろんな型に対応させられる）、
+//             多態性の一つ（同じ関数や、クラスをいろんな型に対応させられる）
 
 //オーバーロードで書く
 //２つの整数のうち大きい方を返す
@@ -46,22 +46,24 @@ class Vec2
 	T x;
 	T y;
 public:
-	inline T GetX() { return x; }
-	inline void SetX(T _x) { x = _x; }
-	inline T GetY() { return y; }
-	inline void SetY(T _y) { y = _y; }
-	inline T Length()const { return sqrt(x * x + y * y); }
-	inline bool operator>(const Vec2& other)const {
-		return Length() > other.Length();
+	T GetX() { return (x); }
+	void SetX(T _x) { x = _x; }
+	T GetY() { return (y); }
+	void SetY(T _y) { y = _y; }
+	T Length()const { return (sqrt(x * x + y * y)); }
+
+	bool operator>(const Vec2<T>& other) {
+		return (this->Length() > other.Length());
 	}
-	inline T tMax(T a, T b)
+
+	T tMax(T a, T b)
 	{
 		if (a > b)
 			return a;
 		else
 			return b;
 	}
-	inline void PrintVec() { cout << "(x, y) = (" << x << ", " << y <<")"<< endl; }
+	void PrintVec() { cout << "(x, y) = (" << x << ", " << y <<")"<< endl; }
 };
 
 //関数テンプレート
