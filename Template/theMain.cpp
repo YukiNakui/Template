@@ -50,19 +50,12 @@ public:
 	void SetX(T _x) { x = _x; }
 	T GetY() { return (y); }
 	void SetY(T _y) { y = _y; }
-	T Length()const { return (sqrt(x * x + y * y)); }
+	T Length()const { return ((T)sqrt(x * x + y * y)); }
 
 	bool operator>(const Vec2<T>& other) {
 		return (this->Length() > other.Length());
 	}
 
-	T tMax(T a, T b)
-	{
-		if (a > b)
-			return a;
-		else
-			return b;
-	}
 	void PrintVec() { cout << "(x, y) = (" << x << ", " << y <<")"<< endl; }
 };
 
@@ -107,7 +100,9 @@ int main()
 	v1.PrintVec();
 	std::cout << "v2";
 	v2.PrintVec();
-	std::cout << "長いほうのベクトルの長さは" << v1.tMax(v1.Length(), v2.Length()) << endl;
+	Vec2<double>res = tMax(v1, v2);
+	res.PrintVec();
+	std::cout << "長いほうのベクトルの長さは" << tMax(v1.Length(), v2.Length()) << endl;
 
 	return 0;
 }
